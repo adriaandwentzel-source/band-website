@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { band, href } from "../lib/band";
+---
+
+<Layout title={band.labels.merch}>
+  <section>
+    <p class="eyebrow">
+      {band.name} / {band.labels.merch}
+    </p>
+    <h1>{band.labels.merch}</h1>
+    <div class="grid">
+      {band.merch.map((m) => (
+        <article class="card">
+          <img
+            class="art"
+            src={href(m.image)}
+            alt={m.name}
+            width="800"
+            height="800"
+            loading="lazy"
+          />
+          <h2 class="card-title">{m.name}</h2>
+          <p>{m.description}</p>
+          {m.url ? (
+            <a class="btn" href={m.url}>
+              {m.name} ↗
+            </a>
+          ) : (
+            <span class="btn disabled">{band.labels.buyAtShows}</span>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>
+

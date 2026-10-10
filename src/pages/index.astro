@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { band, href, splitShows, today } from "../lib/band";
+const release = band.releases[0];
+const next = splitShows(today()).upcoming[0];
+---
+
+<Layout title={band.labels.home}>
+  <section class="hero">
+    <img
+      src={href(band.hero)}
+      alt={band.heroAlt}
+      width="1600"
+      height="900"
+      fetchpriority="high"
+    />
+    <div class="hero-copy">
+      <p class="eyebrow">
+        {band.genre} / {band.location}
+      </p>
+      <h1>{band.tagline}</h1>
+      <p>{band.shortBio}</p>
+      <div class="buttons">
+        <a class="btn primary" href={href("/music/")}>
+          {band.labels.listen} ↗
+        </a>
+        <a class="btn" href={href("/epk/")}>
+          {band.labels.epk} ↗
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="split">
+    <img
+      class="art release-art"
+      src={href(release.cover)}
+      alt={release.title}
+      width="800"
+      height="800"
+      loading="lazy"
+    />
+    <div>
+      <p class="eyebrow">01 / {band.labels.latest}</p>
+      <h2>{release.title}</h2>
+      <p>
+        {release.type} / {release.year}
+      </p>
+      <div class="buttons">
+        {release.links.map((l) =>
+          l.url ? (
+            <a class="btn" href={l.url}>
+              {l.label} ↗
+            </a>
+          ) : (
+            <span class="btn disabled">
+              {l.label} {band.labels.placeholderSuffix}
+            </span>
+          ),
+        )}
+      </div>
+    </div>
+  </section>
+  <section class="ruled">
+    <div class="section-top">
+      <h2>{band.labels.nextShow}</h2>
+      <a class="btn" href={href("/shows/")}>
+        {band.labels.shows} ↗
+      </a>
+    </div>
+    {next ? (
+      <div class="show" data-date={next.date}>
+        <time datetime={next.date}>{next.date}</time>
+        <div>
+          <h3>{next.venue}</h3>
+          <p>{next.city}</p>
+        </div>
+        {next.ticketUrl && (
+          <a class="btn primary" href={next.ticketUrl}>
+            {band.labels.tickets} ↗
+          </a>
+        )}
+      </div>
+    ) : (
+      <p>{band.labels.noShows}</p>
+    )}
+  </section>
+</Layout>

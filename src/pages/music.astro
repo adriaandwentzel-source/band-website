@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { band, href } from "../lib/band";
+---
+
+<Layout title={band.labels.music}>
+  <section>
+    <p class="eyebrow">
+      {band.name} / {band.labels.music}
+    </p>
+    <h1>{band.labels.music}</h1>
+  </section>
+  {band.releases.map((r) => (
+    <section class="split ruled">
+      <img
+        class="art release-art"
+        src={href(r.cover)}
+        alt={r.title}
+        width="800"
+        height="800"
+        loading="lazy"
+      />
+      <div>
+        <p class="eyebrow">
+          {r.type} / {r.year}
+        </p>
+        <h2>{r.title}</h2>
+        <ol class="tracklist">
+          {r.tracks.map((t) => (
+            <li>{t}</li>
+          ))}
+        </ol>
+        <div class="buttons">
+          {r.links.map((l) =>
+            l.url ? (
+              <a class="btn" href={l.url}>
+                {l.label} ↗
+              </a>
+            ) : (
+              <span class="btn disabled">
+                {l.label} {band.labels.placeholderSuffix}
+              </span>
+            ),
+          )}
+        </div>
+        {r.spotifyId && (
+          <div class="player">
+            <button
+              data-embed={`https://open.spotify.com/embed/album/${r.spotifyId}`}
+              data-title={r.title}
+            >
+              {band.labels.loadEmbed} / Spotify
+            </button>
+          </div>
+        )}
+        {r.bandcampAlbumId && (
+          <div class="player">
+            <button
+              data-embed={`https://bandcamp.com/EmbeddedPlayer/album=${r.bandcampAlbumId}/size=large/bgcol=111111/linkcol=c6ff36/tracklist=false/transparent=true/`}
+              data-title={r.title}
+            >
+              {band.labels.loadEmbed} / Bandcamp
+            </button>
+          </div>
+        )}
+        <p class="caption">{band.labels.embedNotice}</p>
+      </div>
+    </section>
+  ))}
+</Layout>

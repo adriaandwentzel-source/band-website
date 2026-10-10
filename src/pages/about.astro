@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { band, href } from "../lib/band";
+---
+
+<Layout title={band.labels.about}>
+  <section>
+    <p class="eyebrow">
+      {band.genre} / {band.location}
+    </p>
+    <h1>{band.labels.about}</h1>
+    <div class="split">
+      <img
+        class="art"
+        src={href(band.hero)}
+        alt={band.heroAlt}
+        width="1600"
+        height="900"
+      />
+      <div>
+        <h2>{band.name}</h2>
+        <p>{band.longBio}</p>
+      </div>
+    </div>
+  </section>
+  <section class="ruled">
+    <h2>{band.labels.members}</h2>
+    <div class="grid members">
+      {band.members.map((m) => (
+        <article>
+          <img
+            class="art"
+            src={href(m.photo)}
+            alt={m.name}
+            width="600"
+            height="800"
+            loading="lazy"
+          />
+          <h3>{m.name}</h3>
+          <p class="eyebrow">{m.role}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>

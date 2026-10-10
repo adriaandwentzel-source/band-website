@@ -1,0 +1,114 @@
+---
+import { band, href } from "../lib/band";
+import "../styles/global.css";
+import interFont from "../assets/inter.woff2?url";
+import oswaldFont from "../assets/oswald.woff2?url";
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+const routes = [
+  "home",
+  "music",
+  "videos",
+  "shows",
+  "merch",
+  "about",
+  "epk",
+  "contact",
+];
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={oswaldFont} as="font" type="font/woff2" crossorigin />
+    <title>{title} | {band.name}</title>
+    <meta name="description" content={band.site.description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={`${title} | ${band.name}`} />
+    <meta property="og:description" content={band.site.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta
+      property="og:image"
+      content={new URL(href(band.site.ogImage), Astro.site)}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href={href("/images/favicon.svg")} />
+    <link rel="sitemap" href={href("/sitemap-index.xml")} />
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      {band.labels.skip}
+    </a>
+    <header class="site-header">
+      <a class="wordmark" href={href("/")}>
+        {band.name}
+        <span class="accent">//</span>
+      </a>
+      <nav aria-label={band.labels.navigation}>
+        {routes.map((r) => (
+          <a
+            aria-current={
+              Astro.url.pathname
+                .replace(import.meta.env.BASE_URL, "")
+                .replace(/\/$/, "") === (r === "home" ? "" : r)
+                ? "page"
+                : undefined
+            }
+            href={href(r === "home" ? "/" : `/${r}/`)}
+          >
+            {band.labels[r]}
+          </a>
+        ))}
+      </nav>
+    </header>
+    {band.placeholder && <div class="demo">{band.labels.placeholder}</div>}
+    <main id="main">
+      <slot />
+    </main>
+    <footer>
+      <div>
+        <a class="wordmark" href={href("/")}>
+          {band.name}
+        </a>
+        <p>{band.labels.footer}</p>
+      </div>
+      <div class="links">
+        {band.socials.map((s) =>
+          s.url ? (
+            <a href={s.url}>{s.label} ↗</a>
+          ) : (
+            <span>
+              {s.label} {band.labels.placeholderSuffix}
+            </span>
+          ),
+        )}
+        <a href={href("/epk/")}>{band.labels.epk} ↗</a>
+      </div>
+    </footer>
+    <script>
+      document
+        .querySelectorAll<HTMLButtonElement>("[data-embed]")
+        .forEach((button) =>
+          button.addEventListener("click", () => {
+            const frame = document.createElement("iframe");
+            frame.src = button.dataset.embed!;
+            frame.title = button.dataset.title!;
+            frame.loading = "lazy";
+            frame.allow = "encrypted-media; fullscreen; picture-in-picture";
+            frame.referrerPolicy = "strict-origin-when-cross-origin";
+            button.replaceWith(frame);
+          }),
+        );
+      document
+        .querySelector("[data-print]")
+        ?.addEventListener("click", () => window.print());
+    </script>
+  </body>
+</html>

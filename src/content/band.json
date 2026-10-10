@@ -1,0 +1,235 @@
+{
+  "placeholder": true,
+  "name": "VOID SIGNAL",
+  "tagline": "HEAVY IS A STATE OF MIND.",
+  "genre": "Metalcore",
+  "location": "[YOUR CITY, COUNTRY]",
+  "formed": "[YEAR]",
+  "hero": "/images/band.svg",
+  "heroAlt": "Placeholder band artwork. Replace with your band photograph.",
+  "logo": "/images/logo.svg",
+  "shortBio": "[PLACEHOLDER BIO] A metalcore band built on crushing riffs, restless rhythms and cathartic hooks. Replace this with your own 50-word introduction.",
+  "longBio": "[PLACEHOLDER LONG BIO] Tell your story here: where you started, what drives your sound, and what audiences can expect from your live show. Add verified release history and live experience. Keep this to roughly 200–300 words for promoters and festival programmers.",
+  "site": {
+    "url": "https://adriaandwentzel-source.github.io",
+    "base": "/band-website/",
+    "description": "[PLACEHOLDER] Official music, shows and electronic press kit for VOID SIGNAL.",
+    "ogImage": "/images/og.png",
+    "timezone": "Africa/Johannesburg"
+  },
+  "labels": {
+    "home": "Home",
+    "music": "Music",
+    "videos": "Videos",
+    "shows": "Shows",
+    "merch": "Merch",
+    "about": "About",
+    "epk": "EPK",
+    "contact": "Contact / Booking",
+    "latest": "Latest transmission",
+    "nextShow": "Next show",
+    "listen": "Listen now",
+    "tickets": "Tickets",
+    "upcoming": "Upcoming shows",
+    "past": "Past shows",
+    "buyAtShows": "Buy at shows",
+    "print": "Download EPK as PDF",
+    "downloads": "Press downloads",
+    "topTracks": "Selected tracks",
+    "topVideos": "Selected videos",
+    "facts": "Key facts",
+    "quotes": "Press quotes",
+    "stats": "Social stats",
+    "members": "The band",
+    "booking": "Booking",
+    "placeholder": "DEMO CONTENT — replace all placeholders before publishing",
+    "footer": "Independent. Uncompromising.",
+    "loadEmbed": "Load player",
+    "embedNotice": "Loads third-party media only when clicked.",
+    "noShows": "No shows announced. Check back soon.",
+    "release": "Release",
+    "bio": "Biography",
+    "shortBio": "Short bio",
+    "longBio": "Long bio",
+    "epkIntro": "Electronic press kit / venues · promoters · festivals",
+    "contactIntro": "Bring the noise to your stage.",
+    "notFound": "Page not found",
+    "backHome": "Back to home",
+    "pdfHelp": "In the print dialog, choose Save as PDF. Links and booking details remain visible.",
+    "mediaPlaceholder": "[ADD YOUR VIDEO ID IN BAND.JSON]",
+    "skip": "Skip to content",
+    "navigation": "Main navigation",
+    "placeholderSuffix": "[PLACEHOLDER]"
+  },
+  "releases": [
+    {
+      "title": "AFTER THE STATIC [DEMO]",
+      "year": 2026,
+      "type": "EP",
+      "cover": "/images/cover.svg",
+      "tracks": [
+        "01 / Dead Frequency [DEMO]",
+        "02 / Fracture [DEMO]",
+        "03 / After the Static [DEMO]"
+      ],
+      "links": [
+        {
+          "label": "Spotify",
+          "url": ""
+        },
+        {
+          "label": "YouTube",
+          "url": ""
+        },
+        {
+          "label": "Apple Music",
+          "url": ""
+        },
+        {
+          "label": "Bandcamp",
+          "url": ""
+        }
+      ],
+      "spotifyId": "",
+      "bandcampAlbumId": ""
+    }
+  ],
+  "videos": [
+    {
+      "title": "Dead Frequency — official video [PLACEHOLDER]",
+      "youtubeId": "",
+      "thumbnail": "/images/band.svg"
+    }
+  ],
+  "shows": [
+    {
+      "date": "2099-11-14",
+      "venue": "[VENUE NAME]",
+      "city": "[CITY]",
+      "ticketUrl": ""
+    },
+    {
+      "date": "2025-06-21",
+      "venue": "[PAST VENUE]",
+      "city": "[CITY]",
+      "ticketUrl": ""
+    }
+  ],
+  "merch": [
+    {
+      "name": "Static tee [PLACEHOLDER]",
+      "description": "[Sizes, price and material]",
+      "image": "/images/merch.svg",
+      "url": ""
+    }
+  ],
+  "members": [
+    {
+      "name": "[MEMBER NAME]",
+      "role": "Vocals",
+      "photo": "/images/member.svg"
+    },
+    {
+      "name": "[MEMBER NAME]",
+      "role": "Guitar",
+      "photo": "/images/member.svg"
+    },
+    {
+      "name": "[MEMBER NAME]",
+      "role": "Bass",
+      "photo": "/images/member.svg"
+    },
+    {
+      "name": "[MEMBER NAME]",
+      "role": "Drums",
+      "photo": "/images/member.svg"
+    }
+  ],
+  "socials": [
+    {
+      "label": "Instagram",
+      "url": ""
+    },
+    {
+      "label": "YouTube",
+      "url": ""
+    },
+    {
+      "label": "TikTok",
+      "url": ""
+    }
+  ],
+  "contacts": [
+    {
+      "label": "Booking",
+      "email": "booking@example.com"
+    },
+    {
+      "label": "Management",
+      "email": "management@example.com"
+    },
+    {
+      "label": "Press",
+      "email": "press@example.com"
+    }
+  ],
+  "epk": {
+    "facts": [
+      {
+        "label": "Origin",
+        "value": "[CITY, COUNTRY]"
+      },
+      {
+        "label": "Style",
+        "value": "Metalcore"
+      },
+      {
+        "label": "Formed",
+        "value": "[YEAR]"
+      },
+      {
+        "label": "Live set",
+        "value": "[SET LENGTH]"
+      }
+    ],
+    "quotes": [
+      {
+        "quote": "[ADD A REAL PRESS QUOTE WITH PERMISSION]",
+        "source": "[PUBLICATION / AUTHOR]",
+        "url": ""
+      }
+    ],
+    "stats": [
+      {
+        "label": "[PLATFORM]",
+        "value": "[VERIFIED FOLLOWER COUNT]",
+        "asOf": "[DATE]"
+      }
+    ],
+    "topTracks": [
+      "Dead Frequency [PLACEHOLDER]"
+    ],
+    "downloads": [
+      {
+        "label": "High-res press photo [PLACEHOLDER]",
+        "path": "/images/band.svg"
+      },
+      {
+        "label": "Logo pack [PLACEHOLDER SVG]",
+        "path": "/images/logo.svg"
+      },
+      {
+        "label": "Tech rider [PLACEHOLDER]",
+        "path": "/images/tech-rider.txt"
+      },
+      {
+        "label": "Stage plot [PLACEHOLDER]",
+        "path": "/images/stage-plot.svg"
+      },
+      {
+        "label": "Input list [PLACEHOLDER]",
+        "path": "/images/input-list.csv"
+      }
+    ]
+  }
+}

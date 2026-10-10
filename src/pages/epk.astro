@@ -1,0 +1,146 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { band, href } from "../lib/band";
+---
+
+<Layout title={band.labels.epk}>
+  <section class="epk-head">
+    <p class="eyebrow">{band.labels.epkIntro}</p>
+    <h1>{band.name}</h1>
+    <div class="split">
+      <img
+        class="art"
+        src={href(band.hero)}
+        alt={band.heroAlt}
+        width="1600"
+        height="900"
+      />
+      <div>
+        <p>{band.shortBio}</p>
+        <button class="btn primary no-print" data-print>
+          {band.labels.print} ↓
+        </button>
+        <p class="caption no-print">{band.labels.pdfHelp}</p>
+      </div>
+    </div>
+  </section>
+  <section class="epk-block ruled">
+    <h2>{band.labels.facts}</h2>
+    <dl class="facts">
+      {band.epk.facts.map((f) => (
+        <div>
+          <dt>{f.label}</dt>
+          <dd>{f.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+  <section class="epk-block ruled">
+    <h2>{band.labels.bio}</h2>
+    <h3>{band.labels.shortBio}</h3>
+    <p>{band.shortBio}</p>
+    <h3>{band.labels.longBio}</h3>
+    <p class="bio-copy">{band.longBio}</p>
+  </section>
+  <section class="epk-block ruled">
+    <h2>{band.labels.quotes}</h2>
+    <div class="grid">
+      {band.epk.quotes.map((q) => (
+        <blockquote>
+          <p>“{q.quote}”</p>
+          <cite>{q.url ? <a href={q.url}>{q.source} ↗</a> : q.source}</cite>
+        </blockquote>
+      ))}
+    </div>
+  </section>
+  <section class="epk-block ruled">
+    <div class="split">
+      <div>
+        <h2>{band.labels.topTracks}</h2>
+        <ol class="tracklist">
+          {band.epk.topTracks.map((t) => (
+            <li>{t}</li>
+          ))}
+        </ol>
+        <div class="buttons">
+          {band.releases[0].links.map(
+            (l) =>
+              l.url && (
+                <a class="btn" href={l.url}>
+                  {l.label} ↗
+                </a>
+              ),
+          )}
+        </div>
+      </div>
+      <div>
+        <h2>{band.labels.topVideos}</h2>
+        {band.videos.map((v) => (
+          <article>
+            <h3>{v.title}</h3>
+            {v.youtubeId ? (
+              <>
+                <a href={`https://www.youtube.com/watch?v=${v.youtubeId}`}>
+                  {v.title} ↗
+                </a>
+                <div class="player">
+                  <button
+                    data-embed={`https://www.youtube-nocookie.com/embed/${v.youtubeId}`}
+                    data-title={v.title}
+                  >
+                    {band.labels.loadEmbed}
+                  </button>
+                </div>
+              </>
+            ) : (
+              <p>{band.labels.mediaPlaceholder}</p>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="epk-block ruled">
+    <h2>{band.labels.downloads}</h2>
+    <div class="buttons">
+      {band.epk.downloads.map((d) =>
+        d.path ? (
+          <a class="btn" href={href(d.path)} download>
+            {d.label} ↓
+          </a>
+        ) : (
+          <span class="btn disabled">{d.label}</span>
+        ),
+      )}
+    </div>
+  </section>
+  <section class="epk-block ruled">
+    <h2>{band.labels.stats}</h2>
+    <dl class="facts">
+      {band.epk.stats.map((s) => (
+        <div>
+          <dt>{s.label}</dt>
+          <dd>
+            {s.value}
+            <br />
+            <small>{s.asOf}</small>
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+  <section class="epk-block ruled">
+    <h2>{band.labels.contact}</h2>
+    <div class="grid">
+      {band.contacts.map((c) => (
+        <div class="contact-card">
+          <h3>{c.label}</h3>
+          <a href={`mailto:${c.email}`}>{c.email}</a>
+        </div>
+      ))}
+    </div>
+    <div class="links">
+      {band.socials.map((s) => s.url && <a href={s.url}>{s.label} ↗</a>)}
+    </div>
+  </section>
+</Layout>

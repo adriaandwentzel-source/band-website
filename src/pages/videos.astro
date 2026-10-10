@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { band, href } from "../lib/band";
+---
+
+<Layout title={band.labels.videos}>
+  <section>
+    <p class="eyebrow">
+      {band.name} / {band.labels.videos}
+    </p>
+    <h1>{band.labels.videos}</h1>
+    <div class="grid">
+      {band.videos.map((v) => (
+        <article class="card">
+          <div class="player">
+            {v.youtubeId ? (
+              <button
+                data-embed={`https://www.youtube-nocookie.com/embed/${v.youtubeId}`}
+                data-title={v.title}
+              >
+                <img
+                  src={href(v.thumbnail)}
+                  alt=""
+                  width="1600"
+                  height="900"
+                  loading="lazy"
+                />
+                <span>▶ {band.labels.loadEmbed}</span>
+              </button>
+            ) : (
+              <small>{v.title}</small>
+            )}
+          </div>
+          <h2 class="card-title">{v.title}</h2>
+        </article>
+      ))}
+    </div>
+    <p class="caption">{band.labels.embedNotice}</p>
+  </section>
+</Layout>
+

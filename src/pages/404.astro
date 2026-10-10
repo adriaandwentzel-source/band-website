@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { band, href } from "../lib/band";
+---
+
+<Layout title={band.labels.notFound}>
+  <section>
+    <h1>404</h1>
+    <p>{band.labels.notFound}</p>
+    <a class="btn primary" href={href("/")}>
+      {band.labels.backHome}
+    </a>
+  </section>
+</Layout>
