@@ -1,6 +1,6 @@
 # Final review — 10 October 2026
 
-Completed locally. GitHub Pages deployment is prepared, but the selected repository is adriaandwentzel-source/band-website. Repository creation is pending browser sign-in; no live deployment has been performed.
+Completed and deployed to https://adriaandwentzel-source.github.io/band-website/ using GitHub Actions. Repository: https://github.com/adriaandwentzel-source/band-website. Deployment run 38036156433 succeeded for commit 608fa4d. All eight live pages and the sitemap returned HTTP 200. The live homepage and EPK were checked at mobile width without overflow or broken images; desktop homepage was visually verified. Content is still clearly marked as placeholders.
 
 ## Validation
 
@@ -42,4 +42,6 @@ Measured on the final static build at localhost, before activating third-party m
 Replace all demo band identity, biographies, members, photos, logos, music/releases, videos, dates, merch, contacts, social profiles, press quotes, facts, follower statistics, SEO and technical documents in band.json and public/images. Supply a GitHub repository, configure site.url/site.base, enable GitHub Actions as the Pages source, and run deployment. Add your domain and DNS settings if required; README contains the steps.
 
 The EPK button calls the browser print dialog with a white-paper print stylesheet. The in-app browser did not expose a usable print preview or native download event; PDF pagination has not been visually verified. Save as PDF in your normal browser and review pagination after adding real content. Actual Spotify/Bandcamp/YouTube IDs remain blank, so real media playback is not verified. Activated third-party players apply their own privacy/storage behavior.
+
+
 
